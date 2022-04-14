@@ -67,6 +67,8 @@ flutter:
   assets:
    - assets/akron-icon.webp
    - assets/church_outside.webp
+   - assets/sermon-image.webp
+   - assets/service-times.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
