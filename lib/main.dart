@@ -31,36 +31,40 @@ class Home extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return Scaffold (
-      backgroundColor: Colors.grey[200],
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.black,
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 10),
-          child: Image.asset('assets/akron-icon.webp'),
-        ),
-        title: const Text(
-            'Akron Grace EC Church',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-            ),
-        ),
-        actions: const <Widget>[
-          Padding(
-            padding: EdgeInsets.only(right: 10),
-            child: Icon(Icons.menu),
+    return GestureDetector(
+      onTap: ()=> FocusScope.of(context).unfocus(),
+      child: Scaffold (
+        backgroundColor: Colors.grey[200],
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black,
+          leading: Padding(
+            padding: const EdgeInsets.only(left: 10),
+            child: Image.asset('assets/akron-icon.webp'),
           ),
-        ],
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: const <Widget>[
-            WelcomeWidget(),
-            LatestSermonWidget(),
-            BulletinWidget(),
-            ServiceTimesWidget()
+          title: const Text(
+              'Akron Grace EC Church',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+          ),
+          actions: const <Widget>[
+            Padding(
+              padding: EdgeInsets.only(right: 10),
+              child: Icon(Icons.menu),
+            ),
           ],
+        ),
+        body: SingleChildScrollView(
+          child: Column(
+            children: const <Widget>[
+              WelcomeWidget(),
+              LatestSermonWidget(),
+              BulletinWidget(),
+              ServiceTimesWidget(),
+              GivingWidget(),
+            ],
+          ),
         ),
       ),
     );

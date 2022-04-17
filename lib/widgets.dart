@@ -296,12 +296,223 @@ class ServiceTimesWidget extends StatelessWidget {
           SizedBox(height: 30),
           ServiceTime(day: 'WED', title: 'Youth Group', time: '7:00 pm'),
           SizedBox(height: 30),
-          ServiceTime(day: 'WED', title: 'Coffee Shop Theology', time: '7:00 pm'),
+          ServiceTime(
+              day: 'WED', title: 'Coffee Shop Theology', time: '7:00 pm'),
         ],
       ),
     );
   }
 }
+
+class AmountButton extends StatelessWidget {
+  const AmountButton({Key? key, required this.amount}) : super(key: key);
+
+  final String amount;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      style: TextButton.styleFrom(
+        primary: Colors.black,
+        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        side: const BorderSide(
+          color: Colors.black12,
+          width: 1,
+        ),
+      ),
+      onPressed: () {},
+      child: Text(
+        '\$' + amount,
+        style: const TextStyle(
+          fontSize: 16,
+          color: Colors.black,
+        ),
+      ),
+    );
+  }
+}
+
+
+class GivingWidget extends StatelessWidget {
+  const GivingWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      margin: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Column(
+        children: [
+          const SizedBox(height: 20),
+          const Text(
+            'Give to',
+            style: TextStyle(
+              fontSize: 20,
+              color: Colors.black,
+              fontStyle: FontStyle.italic,
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                width: 40,
+                height: 40,
+                decoration: BoxDecoration(
+                  image: const DecorationImage(
+                    image: AssetImage('assets/church_outside.webp'),
+                    fit: BoxFit.cover,
+                  ),
+                  borderRadius: BorderRadius.circular(4),
+                ),
+              ),
+              const SizedBox(
+                width: 200,
+                child: Text(
+                  'Akron Grace EC Church',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              AmountButton(amount: '25'),
+              AmountButton(amount: '50'),
+              AmountButton(amount: '100'),
+            ],
+          ),
+          const SizedBox(height: 20),
+          const Text(
+            'to Tithe & Offering',
+            style: TextStyle(
+              fontSize: 14,
+              color: Colors.black,
+            ),
+          ),
+          const SizedBox(height: 15),
+          const TextField(
+            keyboardType: TextInputType.number,
+            style: TextStyle(
+              fontSize: 50,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+            textAlign: TextAlign.right,
+            decoration: InputDecoration(
+              prefixText: '\$',
+              hintText: '0',
+              helperText: 'General donation',
+              hintStyle: TextStyle(
+                fontSize: 50,
+                color: Colors.black,
+              ),
+              border: OutlineInputBorder(),
+            ),
+          ),
+          const SizedBox(height: 20),
+          TextButton(
+            style: TextButton.styleFrom(
+              primary: Colors.black,
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(4),
+              ),
+              side: const BorderSide(
+                color: Colors.grey,
+                width: 1,
+              ),
+            ),
+            onPressed: () {},
+            child: SizedBox(
+              width: 200,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Icon(
+                    Icons.add_circle,
+                    color: Colors.black,
+                  ),
+                  Text(
+                    'Add or change funds',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.black,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 20),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              primary: Colors.black,
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(4),
+              ),
+            ),
+            onPressed: () {},
+            child: const SizedBox(
+              width: double.infinity,
+              child: Text(
+                'Next',
+                style: TextStyle(
+                  fontSize: 18,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ),
+          const SizedBox(height: 20),
+          Row (
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Text(
+                'Secure online giving powered by',
+                style: TextStyle(
+                  fontSize: 10,
+                  color: Colors.black,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+              Icon(
+                Icons.verified_user,
+                color: Colors.green,
+                size: 12,
+              ),
+              Text(
+                'Faithlife',
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.black,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 20),
+        ],
+      )
+    );
+  }
+}
+
 
 
 
