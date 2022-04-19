@@ -15,7 +15,10 @@ class Verse extends StatelessWidget {
       ),
       child: Text(
         verse,
-        style: TextStyle(fontSize: 12),
+        style: const TextStyle(
+          fontSize: 12,
+          fontFamily: 'Karla',
+        ),
       ),
     );
   }
@@ -71,6 +74,7 @@ class ServiceTime extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 16,
                       color: Colors.white,
+                      fontFamily: 'Karla',
                     ),
                   ),
                 ],
@@ -78,51 +82,6 @@ class ServiceTime extends StatelessWidget {
             ],
           ),
         ]
-    );
-  }
-}
-
-class WelcomeWidget extends StatelessWidget {
-  const WelcomeWidget({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container (
-      height: 170,
-      width: double.infinity,
-      margin: const EdgeInsets.all(20),
-      padding: const EdgeInsets.only(left: 20),
-      decoration: BoxDecoration(
-        image: const DecorationImage(
-          image: AssetImage('assets/church_outside.webp'),
-          fit: BoxFit.cover,
-        ),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: const <Widget>[
-          Padding(
-            padding: EdgeInsets.only(bottom: 10),
-            child: Text(
-              'Welcome',
-              style: TextStyle(
-                fontSize: 40,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-          ),
-          Text(
-            'Akron Grace Evangelical Congregational Church',
-            style: TextStyle(
-              fontSize: 15,
-              color: Colors.white,
-            ),
-          ),
-        ],
-      ),
     );
   }
 }

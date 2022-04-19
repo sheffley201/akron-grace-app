@@ -12,12 +12,15 @@ void main() {
   runApp(const MyApp());
 }
 class MyApp extends StatelessWidget{
+
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Akron Grace EC',//use MaterialApp() widget like this
+        title: 'Akron Grace EC',
+        theme: ThemeData(fontFamily: 'Rubik'),
+        //use MaterialApp() widget like this
         home: Home() //create new widget class for this 'home' to
       // escape 'No MediaQuery widget found' error
     );

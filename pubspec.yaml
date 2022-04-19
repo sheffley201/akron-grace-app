@@ -70,6 +70,32 @@ flutter:
    - assets/sermon-image.webp
    - assets/service-times.jpeg
 
+  fonts:
+    - family: 'Rubik'
+      fonts:
+        - asset: 'fonts/Rubik/static/Rubik-Regular.ttf'
+          weight: 400
+        - asset: 'fonts/Rubik/static/Rubik-Italic.ttf'
+          weight: 400
+          style: italic
+        - asset: 'fonts/Rubik/static/Rubik-Medium.ttf'
+          weight: 500
+        - asset: 'fonts/Rubik/static/Rubik-Bold.ttf'
+          weight: 700
+
+    - family: 'Karla'
+      fonts:
+        - asset: 'fonts/Karla/static/Karla-Regular.ttf'
+          weight: 400
+        - asset: 'fonts/Karla/static/Karla-Italic.ttf'
+          weight: 400
+          style: italic
+        - asset: 'fonts/Karla/static/Karla-Bold.ttf'
+          weight: 700
+        - asset: 'fonts/Karla/static/Karla-BoldItalic.ttf'
+          weight: 700
+          style: italic
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
