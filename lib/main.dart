@@ -63,13 +63,11 @@ class Home extends StatelessWidget {
           slivers: [
             SliverAppBar(
               pinned: true,
+              floating: true,
+              snap: true,
               backgroundColor: const Color(0xFF011332),
               foregroundColor: Colors.white,
               expandedHeight: 170.0,
-              leading: Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: Image.asset('assets/akron-icon.webp'),
-              ),
               actions: const <Widget>[
                 Padding(
                   padding: EdgeInsets.only(right: 10),
