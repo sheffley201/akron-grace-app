@@ -148,6 +148,7 @@ class LatestSermonWidget extends StatelessWidget {
                                   'Sunday, April 10, 2022',
                                   style: TextStyle(
                                     fontSize: 14,
+                                    fontFamily: 'Karla',
                                   ),
                                 ),
                               ),
@@ -157,6 +158,7 @@ class LatestSermonWidget extends StatelessWidget {
                                   'Series: Lent: Lament, Repent, Anticipate',
                                   style: TextStyle(
                                     fontSize: 14,
+                                    fontFamily: 'Karla',
                                   ),
                                 ),
                               ),
@@ -166,6 +168,7 @@ class LatestSermonWidget extends StatelessWidget {
                                   'Pastor Andrew Brubaker',
                                   style: TextStyle(
                                     fontSize: 14,
+                                    fontFamily: 'Karla',
                                   ),
                                 ),
                               ),
@@ -247,6 +250,7 @@ class BulletinWidget extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 14,
                       color: Colors.white,
+                      fontFamily: 'Karla',
                     ),
                   ),
                   Text(
@@ -267,6 +271,7 @@ class BulletinWidget extends StatelessWidget {
             style: TextStyle(
               fontSize: 14,
               color: Colors.white,
+              fontFamily: 'Karla',
             ),
           ),
           const SizedBox(height: 20),
@@ -288,6 +293,7 @@ class BulletinWidget extends StatelessWidget {
                     fontSize: 14,
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
+                    fontFamily: 'Karla',
                   ),
                 ),
                 Icon(
@@ -375,6 +381,7 @@ class AmountButton extends StatelessWidget {
         style: const TextStyle(
           fontSize: 16,
           color: Colors.black,
+          fontFamily: 'Karla',
         ),
       ),
     );
@@ -449,6 +456,7 @@ class GivingWidget extends StatelessWidget {
             style: TextStyle(
               fontSize: 14,
               color: Colors.black,
+              fontFamily: 'Karla',
             ),
           ),
           const SizedBox(height: 15),
@@ -464,9 +472,15 @@ class GivingWidget extends StatelessWidget {
               prefixText: '\$',
               hintText: '0',
               helperText: 'General donation',
+              helperStyle: TextStyle(
+                fontSize: 12,
+                color: Colors.black,
+                fontFamily: 'Karla',
+              ),
               hintStyle: TextStyle(
                 fontSize: 50,
                 color: Colors.black,
+                fontFamily: 'Karla',
               ),
               border: OutlineInputBorder(),
             ),
@@ -499,6 +513,7 @@ class GivingWidget extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 14,
                       color: Colors.black,
+                      fontFamily: 'Karla',
                     ),
                   ),
                 ],
@@ -521,6 +536,7 @@ class GivingWidget extends StatelessWidget {
                 'Next',
                 style: TextStyle(
                   fontSize: 18,
+                  fontFamily: 'Karla',
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -536,6 +552,7 @@ class GivingWidget extends StatelessWidget {
                   fontSize: 10,
                   color: Colors.black,
                   fontStyle: FontStyle.italic,
+                  fontFamily: 'Karla',
                 ),
               ),
               Icon(
@@ -631,6 +648,7 @@ class Event extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 14,
                   color: Colors.white,
+                  fontFamily: 'Karla',
                 ),
               ),
               const SizedBox(height: 5),
@@ -639,6 +657,7 @@ class Event extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 14,
                   color: Colors.white,
+                  fontFamily: 'Karla',
                 ),
               ),
               const SizedBox(height: 10),
@@ -776,6 +795,7 @@ class ContactItem extends StatelessWidget {
           style: TextStyle(
             fontSize: 14,
             color: textColor,
+            fontFamily: 'Karla',
           ),
         ),
       ],
