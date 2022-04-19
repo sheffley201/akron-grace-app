@@ -43,11 +43,12 @@ class Home extends StatelessWidget {
     ContactCard(
         title: 'Contact Helping Hands Daycare',
         address: '101 N 7th St\nAkron, PA 17501',
-        email: 'daycarehelpinghands@hotmal.com',
+        email: 'daycarehelpinghands@hotmail.com',
         phone: '717-859-2032 x223',
         color: Colors.black,
         textColor: Colors.white
     ),
+    Footer(),
   ];
 
   Home({Key? key}) : super(key: key);
