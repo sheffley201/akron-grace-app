@@ -1143,7 +1143,7 @@ class Footer extends StatelessWidget {
             child: Text(
               'Copyright 2022 Akron Grace EC Church. App by Spencer Heffley.',
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 14,
                 color: Colors.white,
               ),
               textAlign: TextAlign.center,
