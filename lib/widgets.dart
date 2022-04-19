@@ -359,7 +359,7 @@ class ServiceTimesWidget extends StatelessWidget {
           image: const AssetImage('assets/service-times.jpeg'),
           fit: BoxFit.cover,
           colorFilter: ColorFilter.mode(
-            Colors.black.withOpacity(0.5),
+            Colors.black.withOpacity(0.7),
             BlendMode.darken,
           ),
         ),
@@ -599,6 +599,299 @@ class GivingWidget extends StatelessWidget {
     );
   }
 }
+
+class Event extends StatelessWidget {
+  final String month;
+  final String day;
+  final String title;
+  final String location;
+  final String time;
+
+  const Event(
+      {
+        Key? key,
+        required this.month,
+        required this.day,
+        required this.title,
+        required this.location,
+        required this.time
+      }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          width: 50,
+          height: 50,
+          decoration: BoxDecoration(
+            color: Colors.grey[200],
+            borderRadius: BorderRadius.circular(5),
+          ),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  month,
+                  style: const TextStyle(
+                    fontSize: 10,
+                    color: Colors.black,
+                  ),
+                ),
+                Text(
+                  day,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        const SizedBox(width: 20),
+        SizedBox(
+          width: MediaQuery.of(context).size.width - 150,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 18,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 5),
+              Text(
+                location,
+                style: const TextStyle(
+                  fontSize: 14,
+                  color: Colors.white,
+                ),
+              ),
+              const SizedBox(height: 5),
+              Text(
+                time,
+                style: const TextStyle(
+                  fontSize: 14,
+                  color: Colors.white,
+                ),
+              ),
+              const SizedBox(height: 10),
+              Container(
+                width: 93,
+                decoration: const BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(
+                      color: Colors.white,
+                      width: 1,
+                    ),
+                  ),
+                ),
+                child: Row(
+                  children: const [
+                    Text(
+                      'See Details',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Icon(
+                      Icons.arrow_forward,
+                      color: Colors.white,
+                      size: 14,
+                    ),
+                  ],
+                )
+              )
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+
+class EventsWidget extends StatelessWidget {
+  const EventsWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        width: double.infinity,
+        margin: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          color: Colors.black87,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              Text(
+                'Events',
+                style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 20),
+              Event(month: 'Apr',
+                  day: '18',
+                  title: 'AGEC Office Open',
+                  location: 'Akron Grace EC Church',
+                  time: 'Monday, 11:00 AM - 3:00 PM'),
+              SizedBox(height: 20),
+              Event(month: 'Apr',
+                  day: '18',
+                  title: 'Daycare Meeting',
+                  location: 'Akron Grace EC Church',
+                  time: 'Monday, 7:00 PM'),
+              SizedBox(height: 20),
+              Event(month: 'Apr',
+                  day: '19',
+                  title: 'Discipleship Commission Meeting',
+                  location: 'Akron Grace EC Church',
+                  time: 'Tuesday, 7:00 PM'),
+              SizedBox(height: 20),
+              Event(month: 'Apr',
+                  day: '20',
+                  title: 'AGEC Office Open',
+                  location: 'Akron Grace EC Church',
+                  time: 'Wednesday, 11:00 AM - 3:00 PM'),
+              SizedBox(height: 20),
+              Event(month: 'Apr',
+                  day: '20',
+                  title: 'Ablaze',
+                  location: 'Akron Grace EC Church',
+                  time: 'Wednesday, 7:00 PM'),
+            ]
+        )
+    );
+  }
+}
+
+class ContactItem extends StatelessWidget {
+  final String text;
+  final IconData icon;
+  final Color color;
+  final Color textColor;
+
+  const ContactItem(
+      {
+        Key? key,
+        required this.text,
+        required this.icon,
+        required this.color,
+        required this.textColor
+      }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Container(
+          width: 40,
+          height: 40,
+          decoration: BoxDecoration(
+            color: textColor,
+            borderRadius: BorderRadius.circular(50),
+          ),
+          child: Icon(
+            icon,
+            color: color,
+          ),
+        ),
+        const SizedBox(width: 20),
+        Text(
+          text,
+          style: TextStyle(
+            fontSize: 14,
+            color: textColor,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+
+class ContactCard extends StatelessWidget {
+  final String title;
+  final String address;
+  final String email;
+  final String phone;
+  final Color color;
+  final Color textColor;
+
+  const ContactCard(
+      {
+        Key? key,
+        required this.title,
+        required this.address,
+        required this.email,
+        required this.phone,
+        required this.color,
+        required this.textColor
+      }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      margin: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Column(
+        children: [
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 30,
+              color: textColor,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 20),
+          ContactItem(
+            text: address,
+            icon: Icons.location_on,
+            color: color,
+            textColor: textColor,
+          ),
+          const SizedBox(height: 20),
+          ContactItem(
+            text: email,
+            icon: Icons.email,
+            color: color,
+            textColor: textColor,
+          ),
+          const SizedBox(height: 20),
+          ContactItem(
+            text: phone,
+            icon: Icons.phone,
+            color: color,
+            textColor: textColor,
+          ),
+        ],
+      )
+    );
+  }
+}
+
+
 
 
 
