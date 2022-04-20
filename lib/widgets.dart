@@ -661,34 +661,15 @@ class Event extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10),
-              Container(
-                width: 93,
-                decoration: const BoxDecoration(
-                  border: Border(
-                    bottom: BorderSide(
-                      color: Colors.white,
-                      width: 1,
-                    ),
-                  ),
+              const Text(
+                'See Details >',
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.underline,
                 ),
-                child: Row(
-                  children: const [
-                    Text(
-                      'See Details',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Icon(
-                      Icons.arrow_forward,
-                      color: Colors.white,
-                      size: 14,
-                    ),
-                  ],
-                )
-              )
+              ),
             ],
           ),
         ),
