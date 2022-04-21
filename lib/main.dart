@@ -1,6 +1,7 @@
 import 'package:akron_grace/widgets.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'package:akron_grace/pages.dart';
 import 'package:flutter_launcher_icons/android.dart';
 import 'package:flutter_launcher_icons/constants.dart';
 import 'package:flutter_launcher_icons/custom_exceptions.dart';
@@ -23,45 +24,32 @@ class MyApp extends StatelessWidget{
       DeviceOrientation.portraitDown,
     ]);
     return MaterialApp(
-        title: 'Akron Grace EC',
-        theme: ThemeData(fontFamily: 'Rubik'),
-        //use MaterialApp() widget like this
-        home: Home() //create new widget class for this 'home' to
-      // escape 'No MediaQuery widget found' error
+      title: 'Akron Grace EC',
+      theme: ThemeData(fontFamily: 'Rubik'),
+      debugShowCheckedModeBanner: false,
+      home: HomePage(),
     );
   }
 }
 
-class Home extends StatelessWidget {
-  List <Widget> widgets = const [
-    //WelcomeWidget(),
-    LatestSermonWidget(),
-    BulletinWidget(),
-    ServiceTimesWidget(),
-    GivingWidget(),
-    EventsWidget(),
-    ContactCard(
-        title: 'Contact Grace Church',
-        address: '101 N 7th St\nAkron, PA 17501',
-        email: 'akrongrace@gmail.com',
-        phone: '717-859-2700',
-        color: Colors.white,
-        textColor: Colors.black
-    ),
-    ContactCard(
-        title: 'Contact Helping Hands Daycare',
-        address: '101 N 7th St\nAkron, PA 17501',
-        email: 'daycarehelpinghands@hotmail.com',
-        phone: '717-859-2032 x223',
-        color: Colors.black,
-        textColor: Colors.white
-    ),
-    //Footer(),
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int pageIndex = 0;
+
+  final pages = [
+    Home(),
+    Events(),
+    Sermons(),
+    Bulletin(),
+    About(),
   ];
 
-  Home({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -92,13 +80,54 @@ class Home extends StatelessWidget {
                 ),
               ),
             ),
-            SliverList(
-              delegate: SliverChildListDelegate(widgets),
-            ),
+            pages[pageIndex],
           ],
         ),
-        bottomNavigationBar: const BottomBar(),
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.shifting,
+          unselectedItemColor: Colors.grey[400],
+          selectedItemColor: Colors.black,
+          selectedIconTheme: const IconThemeData(
+            size: 30.0,
+          ),
+          unselectedIconTheme: const IconThemeData(
+            size: 20.0,
+          ),
+          unselectedLabelStyle: const TextStyle(
+            fontSize: 10.0,
+          ),
+          showUnselectedLabels: true,
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.calendar_today),
+              label: 'Events',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.surround_sound),
+              label: 'Sermons',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.assignment),
+              label: 'Bulletin',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.info),
+              label: 'About',
+            ),
+          ],
+          currentIndex: pageIndex,
+          onTap: (index) {
+            setState(() {
+              pageIndex = index;
+            });
+          },
+        ),
       ),
     );
   }
 }
+

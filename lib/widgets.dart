@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:akron_grace/pages.dart';
 
 class Verse extends StatelessWidget {
   final String verse;
@@ -1111,42 +1112,6 @@ class Footer extends StatelessWidget {
           )
         ],
       ),
-    );
-  }
-}
-
-class BottomBar extends StatelessWidget {
-  const BottomBar({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
-      unselectedItemColor: Colors.grey[400],
-      showUnselectedLabels: true,
-      selectedItemColor: Colors.black,
-      items: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: 'Home',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.calendar_today),
-          label: 'Events',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.surround_sound),
-          label: 'Sermons',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.assignment),
-          label: 'Bulletin',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.info),
-          label: 'About',
-        ),
-      ],
     );
   }
 }
