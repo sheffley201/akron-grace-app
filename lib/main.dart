@@ -1,4 +1,5 @@
 import 'package:akron_grace/widgets.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_launcher_icons/android.dart';
 import 'package:flutter_launcher_icons/constants.dart';
@@ -17,6 +18,10 @@ class MyApp extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return MaterialApp(
         title: 'Akron Grace EC',
         theme: ThemeData(fontFamily: 'Rubik'),
@@ -51,7 +56,7 @@ class Home extends StatelessWidget {
         color: Colors.black,
         textColor: Colors.white
     ),
-    Footer(),
+    //Footer(),
   ];
 
   Home({Key? key}) : super(key: key);
@@ -72,12 +77,7 @@ class Home extends StatelessWidget {
               backgroundColor: const Color(0xFF011332),
               foregroundColor: Colors.white,
               expandedHeight: 170.0,
-              actions: const <Widget>[
-                Padding(
-                  padding: EdgeInsets.only(right: 10),
-                  child: Icon(Icons.menu),
-                ),
-              ],
+              centerTitle: true,
               flexibleSpace: FlexibleSpaceBar(
                 title: const Text(
                   'Akron Grace EC Church',
@@ -97,6 +97,7 @@ class Home extends StatelessWidget {
             ),
           ],
         ),
+        bottomNavigationBar: const BottomBar(),
       ),
     );
   }
