@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget{
       title: 'Akron Grace EC',
       theme: ThemeData(fontFamily: 'Rubik'),
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }
