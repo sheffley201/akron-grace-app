@@ -95,34 +95,32 @@ class Bulletin extends StatelessWidget {
 }
 
 class About extends StatelessWidget {
-  List <Widget> widgets = const [
-    //WelcomeWidget(),
-    ContactCard(
-        title: 'Contact Grace Church',
-        address: '101 N 7th St\nAkron, PA 17501',
-        email: 'akrongrace@gmail.com',
-        phone: '717-859-2700',
-        color: Colors.white,
-        textColor: Colors.black
-    ),
-    ContactCard(
-        title: 'Contact Helping Hands Daycare',
-        address: '101 N 7th St\nAkron, PA 17501',
-        email: 'daycarehelpinghands@hotmail.com',
-        phone: '717-859-2032 x223',
-        color: Colors.black,
-        textColor: Colors.white
-    ),
-    //Footer(),
-  ];
+  final String title;
 
-  About({Key? key}) : super(key: key);
+  const About({Key? key, required this.title}) : super(key: key);
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return SliverList(
-      delegate: SliverChildListDelegate(widgets),
+      delegate: SliverChildListDelegate([
+        ContactCard(
+            title: title,
+            address: '101 N 7th St\nAkron, PA 17501',
+            email: 'akrongrace@gmail.com',
+            phone: '717-859-2700',
+            color: Colors.white,
+            textColor: Colors.black
+        ),
+        const ContactCard(
+            title: 'Contact Helping Hands Daycare',
+            address: '101 N 7th St\nAkron, PA 17501',
+            email: 'daycarehelpinghands@hotmail.com',
+            phone: '717-859-2032 x223',
+            color: Colors.black,
+            textColor: Colors.white
+        ),
+      ]),
     );
   }
 }

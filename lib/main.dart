@@ -9,6 +9,7 @@ import 'package:flutter_launcher_icons/ios.dart';
 import 'package:flutter_launcher_icons/main.dart';
 import 'package:flutter_launcher_icons/utils.dart';
 import 'package:flutter_launcher_icons/xml_templates.dart';
+import 'package:web_scraper/web_scraper.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,13 +43,39 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int pageIndex = 0;
 
-  final pages = [
-    Home(),
-    Events(),
-    Sermons(),
-    Bulletin(),
-    About(),
-  ];
+  final webScraper = WebScraper('https://akronpaecc.com/');
+
+  List<Map<String, dynamic>>? title;
+  late List<Map<String, dynamic>>? sermonTitle;
+
+  void getInfo() async {
+    if (await webScraper.loadWebPage('/')) {
+      setState(() {
+        title = webScraper.getElement(
+            'main > article > section > div.full-width__section-container--last > div.fragment-section > div.fragment-first > section > div', ['title']);
+        sermonTitle = webScraper.getElement(
+            'section#1291305 > div.fragment-grid.sermon-grid > div > div.sermon-grid-item__details > a', ['title']);
+        print(sermonTitle);
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    // Requesting to fetch before UI drawing starts
+    getInfo();
+  }
+
+  pageList() {
+    return [
+      Home(),
+      Events(),
+      Sermons(),
+      Bulletin(),
+      About(title: title?.first['title'] ?? ''),
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +107,13 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            pages[pageIndex],
+            title == null ?
+            const SliverFillRemaining(
+              child: Center(
+                child: CircularProgressIndicator(),
+              ),
+            ) :
+            pageList()[pageIndex],
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
